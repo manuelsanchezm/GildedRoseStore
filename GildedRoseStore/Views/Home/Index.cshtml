@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Item>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Gilded Rose Store</h1>
+    <h2>List of Items</h2>
+    <div class="card-columns">
+        <form method="post" >
+            @foreach (var item in Model)
+            {
+                <div class="card" style="width:400px">
+                    <a asp-action="GetItemDetails" asp-route-id="@item.id">
+                        <img class="card-img-top" src="~/images/@item.image" alt="Item" style="width: 100%;" />
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-title">@item.name</h4>
+                        <p class="card-text">Size:  @item.size.ToUpper()</p>
+                        <p class="card-text">Color:  @item.color.ToUpper()</p>
+                        <p class="card-text">Stock: @(item.inStock > 0 ? item.inStock : "Out of stock")</p>
+
+                        @if (User.Identity.IsAuthenticated && item.inStock > 0)
+                        {
+                            <button type="submit" class="btn btn-primary" asp-action="PurchaseItem" asp-controller="Home" asp-route-id="@item.id">Buy Item</button>
+                        }
+                        else
+                        {
+                            <a class="btn btn-primary disabled">Buy Item</a>
+                        }
+                    </div>
+                </div>
+            }
+        </form>
+    </div>
+</div>
