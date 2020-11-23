@@ -3,3 +3,10 @@
 ################################################################################
 
 /GildedRoseStore.IntegrationTests/bin/Debug
+/GildedRoseStore.IntegrationTests/Helpers_
+/GildedRoseStore.Unit.Tests/obj
+/GildedRoseStore.Unit.Tests/bin/Debug/net5.0
+/GildedRoseStore.IntegrationTests/obj
+/GildedRoseStore/TestResults/0a5669da-6b39-4c71-8864-3cf483f75959
+/GildedRoseStore/obj
+/GildedRoseStore/bin/Debug/net5.0
